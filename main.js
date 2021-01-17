@@ -7,6 +7,26 @@ const client = new Discord.Client();
 
 const prefix = ';';
 
+let data = () =>
+{
+    this.creatorAvatarUrl;
+    this.guild;
+    this.color;
+};
+client.users.fetch("381379655665713155").then(user => { data.creatorAvatarUrl = user.displayAvatarURL() });
+client.guilds.fetch("800090090604855308").then(guild => { data.guild = guild });
+data.color = '#f08b48';
+
+client.commands = new Discord.Collection();
+
+const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+for(const file of commandFiles)
+{
+    const command = require(`./commands/${file}`);
+
+    client.commands.set(command.name, command);
+}
+
 client.once("ready", () =>
 {
     console.log(`Logged in as ${client.user.tag}!\n`);
@@ -22,9 +42,9 @@ client.on("message", (message) =>
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if(command === "test")
+    if(command === "hi")
     {
-        message.channel.send("Beep Boop 🤖");
+        client.commands.get('hi').execute(message, args);
     }
 });
 
