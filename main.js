@@ -9,11 +9,11 @@ const prefix = ';';
 
 let data = () =>
 {
-    this.creatorAvatarUrl;
+    this.avURL;
     this.guild;
     this.color;
 };
-client.users.fetch("381379655665713155").then(user => { data.creatorAvatarUrl = user.displayAvatarURL() });
+client.users.fetch("381379655665713155").then(user => { data.avURL = user.displayAvatarURL() });
 client.guilds.fetch("800090090604855308").then(guild => { data.guild = guild });
 data.color = '#f08b48';
 
@@ -35,7 +35,7 @@ client.once("ready", () =>
     client.user.setActivity("Astronauts Fly", { type: 'WATCHING' });
 });
 
-client.on("message", (message) =>
+client.on("message", message =>
 {
     if(!message.content.startsWith(prefix) || message.author.bot) { return; }
 
@@ -45,6 +45,10 @@ client.on("message", (message) =>
     if(command === "hi")
     {
         client.commands.get('hi').execute(message, args);
+    }
+    else if(command === "space" || command === "launch" || command === "dispatch")
+    {
+        client.commands.get('space').execute(message, args, Discord, data);
     }
 });
 
