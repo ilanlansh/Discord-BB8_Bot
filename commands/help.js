@@ -28,7 +28,7 @@ module.exports =
                     value: 'This command lets you launch someone into space.'
                 }
             )
-	        .setFooter('Made by 𝒊𝒍𝒂𝒏𝒍𝒂𝒏𝒔𝒉', data.avURL);
+            .setFooter('Made by 𝒊𝒍𝒂𝒏𝒍𝒂𝒏𝒔𝒉', data.avURL);
         message.channel.send(embed);
     }
 }
