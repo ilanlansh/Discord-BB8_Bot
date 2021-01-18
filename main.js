@@ -13,7 +13,7 @@ let data = () =>
     this.guild;
     this.color;
 };
-client.users.fetch("381379655665713155").then(user => { data.avURL = user.displayAvatarURL() });
+client.users.fetch("381379655665713155").then(user => { data.avURLaa = user.displayAvatarURL() });
 client.guilds.fetch("800090090604855308").then(guild => { data.guild = guild });
 data.color = '#f08b48';
 
@@ -45,6 +45,14 @@ client.on("message", message =>
     if(command === "hi")
     {
         client.commands.get('hi').execute(message, args);
+    }
+    else if(command === "ping")
+    {
+        client.commands.get('ping').execute(message, args);
+    }
+    else if(command === "info" || command === "help")
+    {
+        client.commands.get('help').execute(message, args, Discord, client, data);
     }
     else if(command === "space" || command === "launch" || command === "dispatch")
     {
