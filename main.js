@@ -54,6 +54,10 @@ client.on("message", message =>
     {
         client.commands.get('help').execute(message, args, Discord, client, data);
     }
+    else if(command === "status")
+    {
+        client.commands.get('status').execute(message, args, client);
+    }
     else if(command === "space" || command === "launch" || command === "dispatch")
     {
         client.commands.get('space').execute(message, args, Discord, data);
