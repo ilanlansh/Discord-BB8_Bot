@@ -32,7 +32,7 @@ client.once("ready", () =>
     console.log(`Logged in as ${client.user.tag}!\n`);
     
     client.user.setStatus("Online");
-    client.user.setActivity("Astronauts Fly", { type: 'WATCHING' });
+    client.user.setActivity(";help | ;info", { type: 'PLAYING' });
 });
 
 client.on("message", message =>
