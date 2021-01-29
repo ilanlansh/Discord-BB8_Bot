@@ -7,15 +7,15 @@ const client = new Discord.Client();
 
 const prefix = ';';
 
-let data = () =>
+let embedArgs = () =>
 {
     this.avURL;
     this.guild;
     this.color;
 };
-client.users.fetch(process.env.USERID).then(user => { data.avURL = user.displayAvatarURL() });
-client.guilds.fetch(process.env.GUILDID).then(guild => { data.guild = guild });
-data.color = '#f08b48';
+client.users.fetch(process.env.USERID).then(user => { embedArgs.avURL = user.displayAvatarURL() });
+client.guilds.fetch(process.env.GUILDID).then(guild => { embedArgs.guild = guild });
+embedArgs.color = '#f08b48';
 
 client.commands = new Discord.Collection();
 

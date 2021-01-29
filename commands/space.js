@@ -4,7 +4,7 @@ module.exports =
 {
     name: 'space',
     description: "this command kills. 🙂",
-    async execute(message, args, Discord, data)
+    async execute(message, args, Discord, embedArgs)
     {
         let url = `https://api.tenor.com/v1/search?q=rocket&key=${process.env.TENORKEY}&limit=50`;
         let response = await fetch(url);
@@ -21,10 +21,10 @@ module.exports =
         }
 
         const embed = new Discord.MessageEmbed()
-            .setColor(data.color)
-            .setTitle(`User   ${data.guild.member(message.author).displayName}   just launched   ${data.guild.member(launched).displayName}   into space!`)
+            .setColor(embedArgs.color)
+            .setTitle(`User   ${embedArgs.guild.member(message.author).displayName}   just launched   ${embedArgs.guild.member(launched).displayName}   into space!`)
             .setImage(gif)
-            .setFooter('Made by 𝒊𝒍𝒂𝒏𝒍𝒂𝒏𝒔𝒉', data.avURL);
+            .setFooter('Made by 𝒊𝒍𝒂𝒏𝒍𝒂𝒏𝒔𝒉', embedArgs.avURL);
 
         message.channel.send(embed);
     }

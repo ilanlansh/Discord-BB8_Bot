@@ -1,6 +1,6 @@
 module.exports = 
 {
-    execute(message, Discord, client, data)
+    execute(message, Discord, client, embedArgs)
     {
         const embed = new Discord.MessageEmbed()
             .setColor(data.color)
@@ -26,7 +26,7 @@ module.exports =
                     value: 'This command lets you launch someone into space.'
                 }
             )
-            .setFooter('Made by 𝒊𝒍𝒂𝒏𝒍𝒂𝒏𝒔𝒉', data.avURL);
+            .setFooter('Made by 𝒊𝒍𝒂𝒏𝒍𝒂𝒏𝒔𝒉', embedArgs.avURL);
         message.channel.send(embed);
     }
 }
