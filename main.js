@@ -52,7 +52,7 @@ client.on("message", message =>
     }
     else if(command === "info" || command === "help")
     {
-        client.commands.get('help').execute(message, args, Discord, client, data);
+        client.commands.get('help').execute(message, args, Discord, client, embedArgs);
     }
     else if(command === "status")
     {
@@ -60,7 +60,11 @@ client.on("message", message =>
     }
     else if(command === "space" || command === "launch" || command === "dispatch")
     {
-        client.commands.get('space').execute(message, args, Discord, data);
+        client.commands.get('space').execute(message, args, Discord, embedArgs);
+    }
+    else if(command === "nick")
+    {
+        client.commands.get('nick').execute(message, args, process.env.OFFICERROLEID);
     }
 });
 
