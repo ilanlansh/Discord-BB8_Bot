@@ -35,7 +35,7 @@ client.once("ready", () =>
     client.user.setActivity(";help | ;info", { type: 'PLAYING' });
 });
 
-client.on("message", message =>
+client.on("message", async (message) =>
 {
     if(!message.content.startsWith(prefix) || message.author.bot) { return; }
 
