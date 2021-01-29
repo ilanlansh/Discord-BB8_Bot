@@ -1,7 +1,7 @@
 module.exports = 
 {
     name: 'ping',
-    description: "this command checks the bot's ping!",
+    description: "This command lets you check the bot\'s ping.",
     execute(message, args)
     {
         message.channel.send("Pong!").then(m =>

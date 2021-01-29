@@ -1,10 +1,11 @@
 module.exports = 
 {
     name: 'help',
-    description: "this command gives a list of commands.",
+    description: "This command sends info and instructions about the bot.",
     execute(message, args, Discord, client, embedArgs)
     {
-        if(!args[0])
+        arg = args.join(" ");
+        if(!arg)
         {
             const embed = new Discord.MessageEmbed()
             .setColor(embedArgs.color)
@@ -16,14 +17,22 @@ module.exports =
                 {
                     name: 'For a list of commands',
                     value: 'type `;help commands`'
+                },
+                {
+                    name: 'For a list of administrator commands',
+                    value: 'type `;help admin`'
                 }
             )
             .setFooter('Made by 𝒊𝒍𝒂𝒏𝒍𝒂𝒏𝒔𝒉', embedArgs.avURL);
             message.channel.send(embed);
         }
-        else if(args[0] === 'commands')
+        else if(arg === 'commands')
         {
             require("./help/commands.js").execute(message, Discord, client, embedArgs);
+        }
+        else if(arg === 'admin')
+        {
+            require("./help/admin.js").execute(message, Discord, client, embedArgs);
         }
         else
         {

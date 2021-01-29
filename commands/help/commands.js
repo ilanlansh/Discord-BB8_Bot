@@ -3,7 +3,7 @@ module.exports =
     execute(message, Discord, client, embedArgs)
     {
         const embed = new Discord.MessageEmbed()
-            .setColor(data.color)
+            .setColor(embedArgs.color)
             .setTitle("Commands (1/1)")
             .setDescription("A list of commands:")
             .setThumbnail(client.user.displayAvatarURL())
@@ -11,19 +11,19 @@ module.exports =
             (
                 {
                     name: ';help / ;info',
-                    value: 'Sends info and instructions about the bot.'
+                    value: require("../help.js").description
                 },
                 {
                     name: ';hi',
-                    value: 'hello! 😃'
+                    value: require("../hi.js").description
                 },
                 {
                     name: ';ping',
-                    value: 'This command lets you check the bot\'s ping!'
+                    value: require("../ping.js").description
                 },
                 {
                     name: ';space <@user> / ;launch <@user> / ;dispatch <@user>',
-                    value: 'This command lets you launch someone into space.'
+                    value: require("../space.js").description
                 }
             )
             .setFooter('Made by 𝒊𝒍𝒂𝒏𝒍𝒂𝒏𝒔𝒉', embedArgs.avURL);
