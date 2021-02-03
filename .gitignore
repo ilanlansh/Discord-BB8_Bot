@@ -1,4 +1,9 @@
+# node modules
 node_modules
+
+# environment variables
 .env
-icon.png
-icon.psd
+
+# bot's icon stuff
+*.png
+*.psd
