@@ -14,7 +14,7 @@ module.exports =
             let member = message.mentions.members.first();
             let user = message.mentions.users.first();
 
-            if(!member)
+            if(!member || !user)
             {
                 message.channel.send("Please provide a valid user mention.");
                 return;
